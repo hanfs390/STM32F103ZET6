@@ -11,5 +11,5 @@
 
 int main(void)
 {
-
+	SYSTEM_SetClock(72); /* init clock is 72 MHz */
 }

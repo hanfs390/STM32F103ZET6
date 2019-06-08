@@ -33,6 +33,7 @@ all:$(C_OBJ)
 	$(CC) $(C_OBJ) -T $(LD) -o $(TARGET).elf   -mthumb -mcpu=cortex-m3 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=Project.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
 	$(OBJCOPY) $(TARGET).elf  $(TARGET).bin -Obinary 
 	$(OBJCOPY) $(TARGET).elf  $(TARGET).hex -Oihex
+	mv *.hex /mnt/hgfs/share
 
 $(C_OBJ):%.o:%.c
 	$(CC) -c $(CFLAGS) -o $@ $<
